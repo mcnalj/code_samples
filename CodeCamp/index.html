@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>JavaScript Algorithms</title>
+		<link href="../JavaScript/Pinta/public/stylesheets/jquery-ui.min.css" rel="stylesheet">
+		<link href="Public/Stylesheets/decoder.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="../JavaScript/Pinta/public/javascripts/jquery-ui.min.js"></script>
+		<script src="Public/JavaScripts/roman_converter.js"></script>
+		<script src="Public/JavaScripts/pig_latin.js"></script>
+		<script src="Public/JavaScripts/sum_primes.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$('.execute').button();
+				$('#roman').on('submit', function(event) {
+					event.preventDefault();
+					var $number = $('#roman_input');
+					var number = $number.val();
+// Run the conversion to turn it into a Roman number.
+// Append the result to the paragraph in the next dix.
+//					$('#roman_input, #roman_label' ).hide('slow');
+					$('#final').text(convert(number));
+					$('#final').css('visibility', 'visible');
+				}); // end function
+
+				$('#pig').on('submit', function(event) {
+					event.preventDefault();
+					var $phrase = $('#pig_input');
+					var phrase = $phrase.val();
+// Run the conversion to turn it into pig Latin.
+// Append the result to the paragraph in the next div.
+					$('#final_pig').text(translate(phrase));
+					$('#final_pig').css('visibility', 'visible');
+				}); // end function
+
+				$('#primes').on('submit', function(event) {
+					event.preventDefault();
+					var $largest = $('#prime_input');
+					var largest = $largest.val();
+// Run the calculation to identify and sum all primes.
+// Append the result to the paragraph in the next dix.
+					$('#final_prime').text(sumPrimes(largest));
+					$('#final_prime').css('visibility', 'visible');
+				}); // end function				
+			}); // end ready
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<h1></h1>
+			</header>
+			<div class="main">
+				<div class="converter">
+					<form id="roman" action="" method="GET" name="roman_numeral">
+
+						<fieldset id="romanform">
+							<legend>Roman Numerals</legend>
+							<p style="font-size:12px;"><i>Input a year to be converted to Roman numerals.</i></p>
+							<br>
+							<label for="number" class="label" id="roman_label">Number </label>
+							<input type="text" name="number"  class="required" id="roman_input" value="">
+							<br>
+							<br>
+							<br>
+							<button type="submit" id="push" class="execute">CONVERT</button>
+							<br>
+							<br>
+							<div id="converter_result">
+								<p>The Roman Numeral is . . .</p>
+								<p id="final"><p>
+							</div>
+							<br>
+						</fieldset>
+					</form>					
+				</div>
+				<br>
+				<br>
+				<div class="converter" id="latin">
+					<form id="pig" action="" method="GET" name="pig_latin">
+
+						<fieldset id="pig_form">
+							<legend>Pig Latin</legend>
+							<p style="font-size:12px;"><i>Input a word to be converted to pig Latin.</i></p>
+							<br>
+							<label for="phrase" class="label" id="pig_label">Word </label>
+							<input type="text" name="phrase"  class="required" id="pig_input" value="">
+							<br>
+							<br>
+							<br>
+							<button type="submit" id="pull" class="execute">CONVERT</button>
+							<br>
+							<br>
+							<div id="pig_converter_result">
+								<p>The pig Latin is . . .</p>
+								<p id="final_pig"><p>
+							</div>
+							<br>
+						</fieldset>
+					</form>					
+				</div>
+				<br>
+				<br>
+				<div class="converter" id="sum_primes">
+					<form id="primes" action="" method="GET" name="sum_all_primes">
+
+						<fieldset id="prime_form">
+							<legend>Sum All Primes</legend>
+							<p style="font-size:12px;"><i>Input an integer to find the sum of all positive primes less than that number.</i></p>
+							<br>
+							<label for="sum_prime" class="label" id="prime_label">Number </label>
+							<input type="text" name="sum_prime"  class="required" id="prime_input" value="">
+							<br>
+							<br>
+							<br>
+							<button type="submit" id="push_primes" class="execute">CONVERT</button>
+							<br>
+							<br>
+							<div id="prime_converter_result">
+								<p>The sum of all primes is . . .</p>
+								<p id="final_prime"><p>
+							</div>
+							<br>
+						</fieldset>
+					</form>					
+				</div>
+			</div>
+		</div>
+	</body>
+	<footer></footer>
+</html>
